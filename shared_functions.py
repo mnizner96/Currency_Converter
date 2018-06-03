@@ -36,7 +36,7 @@ def json_output_format(arguments, root_tree):
         input_rate = 1   # because courses in XML file are written against EUR
 
     if arguments.output_curr == 'EUR':
-        output_data_json['EUR'] = "%.2f" % (float(arguments.amount) / input_rate)
+        output_data_json['EUR'] = "%.2f" % (arguments.amount / input_rate)
     else:
         if not arguments.output_curr:
             output_curr_data = root_tree.findall('.//ex:Cube[@currency]', namespaces=namespaces)  #get all currencies from XML file
