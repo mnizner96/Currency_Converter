@@ -44,7 +44,7 @@ def json_output_format(arguments, root_tree):
             for currency in output_curr_data:
                 output_data_json[currency.attrib['currency']] = "%.2f" % (float(currency.attrib['rate']) / input_rate * arguments.amount)
         else:
-            output_curr_data = root_tree.find('.//ex:Cube[@currency="{}"]'.format(arguments.output_curr.upper()), namespaces=namespaces)
+            output_curr_data = root_tree.find('.//ex:Cube[@currency="{}"]'.format(arguments.output_curr), namespaces=namespaces)
             if output_curr_data is None:
                 return 2
             output_data_rate = float(output_curr_data.attrib['rate'])
